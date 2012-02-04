@@ -1,4 +1,4 @@
-<?php  //$Id: upgrade.php,v 1.7.2.2 2011/12/05 21:54:25 adelamarre Exp $
+<?php  //$Id: upgrade.php,v 1.8 2011/05/10 14:31:41 adelamarre Exp $
 
 // This file keeps track of upgrades to
 // the adobeconnect module

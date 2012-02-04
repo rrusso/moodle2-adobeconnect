@@ -1,4 +1,4 @@
-<?php  // $Id: lib.php,v 1.9.2.2 2011/12/05 21:54:25 adelamarre Exp $
+<?php  // $Id: lib.php,v 1.9 2011/05/03 22:43:25 adelamarre Exp $
 /**
  * @package mod
  * @subpackage adobeconnect
