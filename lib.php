@@ -97,7 +97,7 @@ function adobeconnect_add_instance($adobeconnect) {
     }
 
     $aconnect = aconnect_login();
-    $meetfldscoid = aconnect_get_folder($aconnect, 'meetings');
+    $meetfldscoid = aconnect_get_folder($aconnect, 'my-meetings');
 
     $meeting = clone $adobeconnect;
 
@@ -249,7 +249,7 @@ function adobeconnect_update_instance($adobeconnect) {
 
     $aconnect = aconnect_login();
 
-    $meetfldscoid = aconnect_get_folder($aconnect, 'meetings');
+    $meetfldscoid = aconnect_get_folder($aconnect, 'my-meetings');
 
     // Look for meetings whose names are similar
     $filter = array('filter-like-name' => $adobeconnect->name);

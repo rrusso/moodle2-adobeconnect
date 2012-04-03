@@ -60,7 +60,7 @@ class mod_adobeconnect_mod_form extends moodleform_mod {
         $mform->disabledIf('meeturl', 'tempenable', 'eq', 0);
 
         // Public or private meeting
-        $meetingpublic = array(1 => get_string('public', 'adobeconnect'), 0 => get_string('private', 'adobeconnect'));
+        $meetingpublic = array(1 => get_string('public', 'adobeconnect'), 1 => get_string('private', 'adobeconnect'));
         $mform->addElement('select', 'meetingpublic', get_string('meetingtype', 'adobeconnect'), $meetingpublic);
         $mform->addHelpButton('meetingpublic', 'meetingtype', 'adobeconnect');
 //        $mform->addHelpButton('meetingpublic', array('meetingtype', get_string('meetingtype', 'adobeconnect'), 'adobeconnect'));
@@ -83,7 +83,7 @@ class mod_adobeconnect_mod_form extends moodleform_mod {
         $starttime  = usertime($time);
         $mform->addElement('date_time_selector', 'starttime', get_string('starttime', 'adobeconnect'));
         $mform->addElement('date_time_selector', 'endtime', get_string('endtime', 'adobeconnect'));
-        $mform->setDefault('endtime', strtotime('+2 hours', $starttime));
+        $mform->setDefault('endtime', strtotime('+17 weeks', $starttime));
 
 
 //-------------------------------------------------------------------------------

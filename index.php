@@ -18,6 +18,11 @@ $id = required_param('id', PARAM_INT);   // course
 
 global $USER, $DB;
 
+// Robert Russo - make sure logged in as users can't accidentally (or on purpose) log in to Connect as someone else
+if (isset($USER->realuser)) {
+    error('You are logged in as someone else.<br /> Please log in as yourself or have the real user log in to continue.');
+}
+
 $params = array('id' => $id);
 if (! $course = $DB->get_record('course', $params)) {
     error('Course ID is incorrect');

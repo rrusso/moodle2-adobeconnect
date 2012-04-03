@@ -19,6 +19,11 @@ $sesskey  = required_param('sesskey', PARAM_ALPHANUM);
 
 global $CFG, $USER, $DB;
 
+// Robert Russo - make sure logged in as users can't accidentally (or on purpose) log in to Connect as someone else
+if (isset($USER->realuser)) {
+    error('You are logged in as someone else.<br /> Please log in as yourself or have the real user log in to continue.');
+}
+
 if (! $cm = get_coursemodule_from_id('adobeconnect', $id)) {
     error('Course Module ID was incorrect');
 }
@@ -105,7 +110,7 @@ if ($usrcanjoin and confirm_sesskey($sesskey)) {
     $aconnect = aconnect_login();
 
     // Check if the meeting still exists on the Adobe server
-    $meetfldscoid = aconnect_get_folder($aconnect, 'meetings');
+    $meetfldscoid = aconnect_get_folder($aconnect, 'my-meetings');
     $filter = array('filter-sco-id' => $meetingscoid);
     $meeting = aconnect_meeting_exists($aconnect, $meetfldscoid, $filter);
 

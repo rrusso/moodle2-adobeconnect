@@ -21,6 +21,11 @@ $groupid = optional_param('group', 0, PARAM_INT);
 
 global $CFG, $USER, $DB, $PAGE, $OUTPUT;
 
+// Robert Russo - make sure logged in as users can't accidentally (or on purpose) log in to Connect as someone else
+if (isset($USER->realuser)) {
+    error('You are logged in as someone else.<br /> Please log in as yourself or have the real user log in to continue.');
+}
+
 if ($id) {
     if (! $cm = get_coursemodule_from_id('adobeconnect', $id)) {
         error('Course Module ID was incorrect');
@@ -285,7 +290,7 @@ $aconnect = aconnect_login();
 $cond = array('instanceid' => $adobeconnect->id, 'groupid' => $groupid);
 $scoid = $DB->get_field('adobeconnect_meeting_groups', 'meetingscoid', $cond);
 
-$meetfldscoid = aconnect_get_folder($aconnect, 'meetings');
+$meetfldscoid = aconnect_get_folder($aconnect, 'my-meetings');
 $filter = array('filter-sco-id' => $scoid);
 
 if (($meeting = aconnect_meeting_exists($aconnect, $meetfldscoid, $filter))) {

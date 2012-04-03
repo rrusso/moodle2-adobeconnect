@@ -134,7 +134,7 @@ function adobe_connection_test($host = '', $port = 80, $username = '',
 
                 }
 
-                $folderscoid = aconnect_get_folder($aconnectDOM, 'meetings');
+                $folderscoid = aconnect_get_folder($aconnectDOM, 'my-meetings');
 
                 if ($folderscoid) {
                     echo '<p style="color:#006633">successfully obtained meetings folder scoid: '. $folderscoid . '</p>';
@@ -147,7 +147,7 @@ function adobe_connection_test($host = '', $port = 80, $username = '',
                 }
 
                 //Test creating a meeting
-                $folderscoid = aconnect_get_folder($aconnectDOM, 'meetings');
+                $folderscoid = aconnect_get_folder($aconnectDOM, 'my-meetings');
 
                 $meeting = new stdClass();
                 $meeting->name = 'testmeetingtest';
